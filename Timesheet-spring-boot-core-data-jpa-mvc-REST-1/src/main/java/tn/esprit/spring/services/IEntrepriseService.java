@@ -7,6 +7,7 @@ import tn.esprit.spring.entities.Entreprise;
 
 public interface IEntrepriseService {
 	
+	
 	public int ajouterEntreprise(Entreprise entreprise);
 	
 	
