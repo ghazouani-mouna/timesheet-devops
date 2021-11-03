@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,38 +32,75 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	public int ajouterEntreprise(Entreprise entreprise) {
 		l.debug("Method ajouterEntreprise");
 		entrepriseRepoistory.save(entreprise);
-		l.info("entreprise ajoutée avec succés avec id = "+entreprise.getId());
+		l.info("entreprise ajoutée avec succés et son  id egal = "+entreprise.getId());
 		return entreprise.getId();
 	}
 
 	
 	
 	
-	
+	//adding exeptions
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+		l.debug("method getAllDepartementsNamesByEntreprise ");
 		List<String> depNames = new ArrayList<>();
-		for(Departement dep : entrepriseManagedEntity.getDepartements()){
-			depNames.add(dep.getName());
+		try {
+			Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).orElse(null);
+			
+			if(entrepriseManagedEntity!=null && entrepriseManagedEntity.getDepartements()!=null){
+			for(Departement dep : entrepriseManagedEntity.getDepartements()){
+				depNames.add(dep.getName());
+			}
+			l.debug("methode  fini avec succés ");
+			return depNames;
+			}
+			else {
+				l.error("erreur method : " );
+				return depNames;
+			}
+		} catch (Exception e) {
+			l.error("erreur method : " +e);
+			return depNames;
 		}
-		
-		return depNames;
 	}
 
 	@Transactional
-	public void deleteEntrepriseById(int entrepriseId) {
-		
+	public int deleteEntrepriseById( @Nullable int entrepriseId) {
 		l.debug("methode deleteEntrepriseById ");
-		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
+		
+		try {
+			if(entrepriseRepoistory.findById( entrepriseId).orElse(null) != null){
+			entrepriseRepoistory.delete(entrepriseRepoistory.findById( entrepriseId).orElse(null));
+			l.debug("deleteEntrepriseById fini avec succes ");
+			return 0;
+			}
+			else {
+				l.error("erreur methode deleteEntrepriseById : " );
+				return -1;
+			}
+		} catch (Exception e) {
+			l.error("erreur methode deleteEntrepriseById : " +e);
+			return -1;
+		}		
 	}
+
 
 	
 
 
-	public Entreprise getEntrepriseById(int entrepriseId) {
-		Entreprise ent = entrepriseRepoistory.findById(entrepriseId).get();
-		l.debug("getEntrepriseById fini avec succes ");
-		return ent;
+	public Entreprise getEntrepriseById( int entrepriseId) {
+l.debug("methode getEntrepriseById ");
+		
+		
+		try {
+			Entreprise et= entrepriseRepoistory.findById(entrepriseId).orElse(null);
+			l.debug("getEntrepriseById fini avec succes ");
+			return et;
+		} catch (Exception e) {
+			l.error("erreur methode getEntrepriseById : " +e);
+			return null;
+		}	
+		
+		
 	}
 
 }
