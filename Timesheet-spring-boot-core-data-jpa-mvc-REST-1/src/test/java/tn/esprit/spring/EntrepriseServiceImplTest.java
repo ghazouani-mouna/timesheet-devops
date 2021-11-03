@@ -30,7 +30,8 @@ public class EntrepriseServiceImplTest {
 	@Autowired IEntrepriseService entservice;
 	@Autowired EntrepriseRepository  entrepriserepository;
 	@Autowired DepartementRepository  departementrepository;
-	private static final Logger l = Logger.getLogger(EntrepriseServiceImplTest.class);
+	Integer idEntreprise;
+	
 	
 	@Test
 	
@@ -40,7 +41,7 @@ public class EntrepriseServiceImplTest {
 		 Entreprise ent=new Entreprise("MitraSociety","mitra");
 		 int idE=entservice.ajouterEntreprise(ent);
 		 assertNotNull(idE);
-		 l.info("entreprise ajouté avec succées");
+		 
 		
 	}
 	
@@ -51,20 +52,25 @@ public class EntrepriseServiceImplTest {
 @Test
 public void testGetEtrepriseById(){
     
-    entservice.getEntrepriseById(1);
+    Entreprise ent=entservice.getEntrepriseById(1);
+    assertEquals(1, ent.getId());
     
 }
 
 
 @Test
 public void testDeleteEntrepriseById(){
-     int id=4;
-     boolean isExistBeforeDelete=entrepriserepository.findById(id).isPresent();
-      entservice.deleteEntrepriseById(id);
-     boolean notExistAfterDelete=entrepriserepository.findById(id).isPresent();
-     assertTrue(isExistBeforeDelete);
-     assertFalse(notExistAfterDelete);
-     l.info("entreprise supprimée avec succées");
+	
+	if(idEntreprise!=null){
+		int i = entservice.deleteEntrepriseById(idEntreprise);
+		
+		assertEquals(0, i);
+		}
+		else {
+			int i = entservice.deleteEntrepriseById(5);
+			
+			assertEquals(0, i);
+			}
        
 	
 	
