@@ -3,7 +3,7 @@ package tn.esprit.spring;
 
 import static org.junit.Assert.*;
 
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -39,8 +39,8 @@ public class EntrepriseServiceImplTest {
 		
 		
 		 Entreprise ent=new Entreprise("MitraSociety","mitra");
-		 int idE=entservice.ajouterEntreprise(ent);
-		 assertNotNull(idE);
+		 idEntreprise=entservice.ajouterEntreprise(ent);
+		 assertNotNull(idEntreprise);
 		 
 		
 	}
