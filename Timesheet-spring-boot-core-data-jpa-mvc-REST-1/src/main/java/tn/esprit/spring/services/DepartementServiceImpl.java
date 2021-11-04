@@ -13,13 +13,16 @@ import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
+
+
 @Service
-public class DepartementServiceImpl {
+public class DepartementServiceImpl implements IDepartementService {
+
 
 @Autowired
-EntrepriseRepository entrepriseRepoistory;
-@Autowired
 DepartementRepository deptRepoistory;
+@Autowired
+EntrepriseRepository entrepriseRepoistory;
 
 private static final Logger l = Logger.getLogger(DepartementServiceImpl.class);
 
