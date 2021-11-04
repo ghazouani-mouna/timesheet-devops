@@ -60,9 +60,18 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 
 @Transactional
 public void deleteDepartementById(int depId) {
-	deptRepoistory.delete(deptRepoistory.findById(depId).get());	
+	l.debug("La suppression d'un département ");
+try{
+	if(deptRepoistory.findById(depId) != null){
+		deptRepoistory.delete(deptRepoistory.findById(depId).orElse(null));
+		l.debug("La suppression fait avec succes ");}
+}
+	catch(Exception e){
+		l.error("Erreur"+e);
+	}
+}
 }
 
 
 
-}
+

@@ -42,29 +42,30 @@ private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Departeme
 		assertNotNull(rslt);
 	}
 
-*/
+
 @Test
 
-
 public void testAffecterDepartementAEntreprise(){
-	depservice.affecterDepartementAEntreprise(1,1);
+	depservice.affecterDepartementAEntreprise(2,1);
 	Departement dep=departementrepository.findById(1).orElse(null);
 	assertEquals(1,dep.getEntreprise().getId());	
 	 
 }
 
-/*
+*/
+	
 @Test
-public void testDeleteDepartementById(){
+public void testDeleteDepartementById() {
+	
      int iddep=5;
      boolean isExistBeforeDelete=departementrepository.findById(iddep).isPresent();
-      entservice.deleteDepartementById(iddep);
+      depservice.deleteDepartementById(iddep);
      boolean notExistAfterDelete=departementrepository.findById(iddep).isPresent();
      assertTrue(isExistBeforeDelete);
      assertFalse(notExistAfterDelete);
 
    }  
-*/
+
 
 }
 
