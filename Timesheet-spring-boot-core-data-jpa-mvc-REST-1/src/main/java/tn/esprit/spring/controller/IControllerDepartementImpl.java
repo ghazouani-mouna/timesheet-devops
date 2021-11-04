@@ -1,4 +1,5 @@
-ackage tn.esprit.spring.controller;
+package tn.esprit.spring.controller;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import tn.esprit.spring.services.ITimesheetService;
 public class IControllerDepartementImpl {
 
 	@Autowired
-	IEmployeService iemployeservice;
+	IEntrepriseService iemployeservice;
 	@Autowired
 	IEntrepriseService ientrepriseservice;
 	@Autowired
