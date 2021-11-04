@@ -45,6 +45,7 @@ private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Departeme
 */
 @Test
 
+
 public void testAffecterDepartementAEntreprise(){
 	depservice.affecterDepartementAEntreprise(1,1);
 	Departement dep=departementrepository.findById(1).orElse(null);
