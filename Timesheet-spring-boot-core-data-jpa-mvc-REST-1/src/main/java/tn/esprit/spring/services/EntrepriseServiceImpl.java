@@ -10,13 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lombok.NonNull;
+
 import tn.esprit.spring.entities.Departement;
 
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 import org.apache.log4j.Logger;
+
 
 
 @Service
@@ -65,13 +66,14 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 
 	@Transactional
+	
 	public int deleteEntrepriseById(  int entrepriseId) {
 		l.debug("methode deleteEntrepriseById ");
 		
 		try {
 			if(entrepriseRepoistory.findById( entrepriseId).orElse(null) != null){
 				
-			entrepriseRepoistory.delete( entrepriseRepoistory.findById( entrepriseId).orElse(null));
+			entrepriseRepoistory.delete(   entrepriseRepoistory.findById( entrepriseId).orElse(null));
 			l.debug("deleteEntrepriseById fini avec succes ");
 			return 0;
 			}
