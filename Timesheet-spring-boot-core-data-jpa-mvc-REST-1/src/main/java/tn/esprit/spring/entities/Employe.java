@@ -57,7 +57,7 @@ public class Employe implements Serializable {
 	private List<Departement> departements;
 	
 	@OneToOne
-	private Contrat contrat;
+	//private Contrat contrat;
 	
 	@JsonIgnore
 	//@JsonBackReference
@@ -168,13 +168,13 @@ public class Employe implements Serializable {
 		this.departements = departement;
 	}
 
-	public Contrat getContrat() {
-		return contrat;
-	}
+	//public Contrat getContrat() {
+	//return contrat;
+	//}
 
-	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
-	}
+	//public void setContrat(Contrat contrat) {
+	//this.contrat = contrat;
+	//}
 
 	public List<Timesheet> getTimesheets() {
 		return timesheets;
