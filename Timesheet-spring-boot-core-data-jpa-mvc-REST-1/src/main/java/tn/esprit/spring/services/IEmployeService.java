@@ -2,8 +2,12 @@ package tn.esprit.spring.services;
 
 
 
-public interface IDepartementService {
-
+public interface IEmployeService {
 	
+	
+	
+	
+	
+
 	
 }

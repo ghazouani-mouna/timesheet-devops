@@ -1,0 +1,12 @@
+2021-11-03 12:53:32.733  INFO 12672 --- [main] t.e.spring.EntrepriseServiceImplTest     : Starting EntrepriseServiceImplTest on mouna with PID 12672 (started by mouna in C:\Users\mouna\git\timesheet-devops\Timesheet-spring-boot-core-data-jpa-mvc-REST-1)
+2021-11-03 12:53:32.736  INFO 12672 --- [main] t.e.spring.EntrepriseServiceImplTest     : No active profile set, falling back to default profiles: default
+2021-11-03 12:53:38.309  INFO 12672 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-11-03 12:53:38.557  INFO 12672 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.9.Final}
+2021-11-03 12:53:38.561  INFO 12672 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-11-03 12:53:38.865  INFO 12672 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2021-11-03 12:53:39.266  INFO 12672 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-11-03 12:53:45.566  INFO 12672 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-11-03 12:53:48.511  WARN 12672 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-03 12:53:49.368  INFO 12672 --- [main] t.e.spring.EntrepriseServiceImplTest     : Started EntrepriseServiceImplTest in 17.279 seconds (JVM running for 20.184)
