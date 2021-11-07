@@ -14,7 +14,7 @@ import tn.esprit.spring.services.ITimesheetService;
 @Controller
 public class IControllerEntrepriseImpl{
 
-	@Autowired
+	/**@Autowired
 	IEmployeService iemployeservice;
 	@Autowired
 	IEntrepriseService ientrepriseservice;
@@ -39,7 +39,7 @@ public class IControllerEntrepriseImpl{
 	
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
 		return ientrepriseservice.getAllDepartementsNamesByEntreprise(entrepriseId);
-	}
+	}**/
 
 	
 }

@@ -23,7 +23,7 @@ import tn.esprit.spring.services.ITimesheetService;
 public class RestControlDepartement {
 
 
-	@Autowired
+	/**@Autowired
 	IEmployeService iemployeservice;
 	@Autowired
 	IDepartementService idepartementservice;
@@ -58,5 +58,5 @@ public class RestControlDepartement {
 	public void deleteDepartementById(@PathVariable("iddept") int depId) {
     	idepartementservice.deleteDepartementById(depId);
 
-	}
+	}**/
 }

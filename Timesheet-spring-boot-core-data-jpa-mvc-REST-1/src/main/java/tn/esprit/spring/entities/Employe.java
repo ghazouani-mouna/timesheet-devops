@@ -56,9 +56,6 @@ public class Employe implements Serializable {
 	//@NotNull
 	private List<Departement> departements;
 	
-	@OneToOne
-	//private Contrat contrat;
-	
 	@JsonIgnore
 	//@JsonBackReference
 	@OneToMany(mappedBy="employe")
@@ -139,9 +136,6 @@ public class Employe implements Serializable {
 		this.email = email;
 	}
 
-
-
-
 	public boolean isActif() {
 		return actif;
 	}
@@ -168,13 +162,6 @@ public class Employe implements Serializable {
 		this.departements = departement;
 	}
 
-	//public Contrat getContrat() {
-	//return contrat;
-	//}
-
-	//public void setContrat(Contrat contrat) {
-	//this.contrat = contrat;
-	//}
 
 	public List<Timesheet> getTimesheets() {
 		return timesheets;

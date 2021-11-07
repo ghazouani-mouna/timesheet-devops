@@ -16,7 +16,7 @@ import tn.esprit.spring.services.ITimesheetService;
 @Controller
 public class IControllerDepartementImpl {
 
-	@Autowired
+	/**@Autowired
 	IEntrepriseService iemployeservice;
 	@Autowired
 	IEntrepriseService ientrepriseservice;
@@ -40,7 +40,7 @@ public class IControllerDepartementImpl {
 	public void deleteDepartementById(int depId) {
 		idepartementservice.deleteDepartementById(depId);
 
-	}
+	}**/
 }
 
 
