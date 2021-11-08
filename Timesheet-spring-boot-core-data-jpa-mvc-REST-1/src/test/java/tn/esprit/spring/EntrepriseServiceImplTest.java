@@ -67,7 +67,7 @@ public void testDeleteEntrepriseById(){
 		assertEquals(0, i);
 		}
 		else {
-			int i = entservice.deleteEntrepriseById(5);
+			int i = entservice.deleteEntrepriseById(57);
 			
 			assertEquals(0, i);
 			}
