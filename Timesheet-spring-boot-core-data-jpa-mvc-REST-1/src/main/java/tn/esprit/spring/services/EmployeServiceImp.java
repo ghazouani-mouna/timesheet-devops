@@ -33,14 +33,31 @@ public class EmployeServiceImp implements IEmployeService {
 	
 	private static final Logger logger = Logger.getLogger(EmployeServiceImp.class);
 	public int ajouterEmploye(Employe employe) {
-		employeRepository.save(employe);
+		try {
+			logger.debug("Process ajout d'un employe");
+			employeRepository.save(employe);
+			logger.info("Employe ajouté avec success! ");
+		}catch(Exception e) {
+			logger.error("Erreur dans ajouterEmploye():"+ e);
+		}finally {
+			logger.info("l'ajout d'un employé est términé");
+		}
+		
 		return employe.getId();
 	}
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {
+		try {
+			logger.debug("Process de mise ajour de l'email d'un employe");
 		Employe employe = employeRepository.findById(employeId).get();
 		employe.setEmail(email);
 		employeRepository.save(employe);
+		logger.info("l'employé "+employe.getNom()+"a changé son email à"+email );
+		}catch(Exception e) {
+			logger.error("Erreur dansmettreAjourEmailByEmployeId:"+ e);
+		}finally {
+			logger.info("mettreAjourEmailByEmployeId est terminée");
+		}
 
 	}
 
@@ -50,7 +67,7 @@ public class EmployeServiceImp implements IEmployeService {
 		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		if(depManagedEntity.getEmployes() == null){
-
+			logger.info("verifier s'il y'a deja une liste d'employe et creation d'une nouvelle s'il n'ya pas");
 			List<Employe> employes = new ArrayList<>();
 			employes.add(employeManagedEntity);
 			depManagedEntity.setEmployes(employes);
@@ -59,16 +76,19 @@ public class EmployeServiceImp implements IEmployeService {
 			depManagedEntity.getEmployes().add(employeManagedEntity);
 
 		}
+		logger.info("affecterEmployeADepartement est términé");
 
 	}
 	@Transactional
 	public void desaffecterEmployeDuDepartement(int employeId, int depId)
 	{
+		logger.debug("desaffecterEmployeDuDepartement est en cours");
 		Departement dep = deptRepoistory.findById(depId).get();
 
 		int employeNb = dep.getEmployes().size();
 		for(int index = 0; index < employeNb; index++){
 			if(dep.getEmployes().get(index).getId() == employeId){
+				logger.info("l'id doit exister");
 				dep.getEmployes().remove(index);
 				break;//a revoir
 			}
@@ -79,7 +99,6 @@ public class EmployeServiceImp implements IEmployeService {
 		//contratRepoistory.save(contrat);
 		//return contrat.getReference();
 	//}
-
 	//public void affecterContratAEmploye(int contratId, int employeId) {
 		//Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		//Employe employeManagedEntity = employeRepository.findById(employeId).get();
@@ -88,15 +107,17 @@ public class EmployeServiceImp implements IEmployeService {
 		//contratRepoistory.save(contratManagedEntity);
 		
 	//}
-
 	public String getEmployePrenomById(int employeId) {
+		logger.debug("getEmployePrenomById est en cours");
 		Employe employeManagedEntity = employeRepository.findById(employeId).get();
+		logger.info("find l'mploye par son id ");
 		return employeManagedEntity.getPrenom();
 	}
 	public void deleteEmployeById(int employeId)
 	{
+		logger.debug("deleteEmployeById est en cours");
 		Employe employe = employeRepository.findById(employeId).get();
-
+		logger.info("select employe a partir de son id");
 		//Desaffecter l'employe de tous les departements
 		//c'est le bout master qui permet de mettre a jour
 		//la table d'association
@@ -114,19 +135,30 @@ public class EmployeServiceImp implements IEmployeService {
 	}**/
 
 	public int getNombreEmployeJPQL() {
+		logger.debug("getNombreEmployeJPQL() est en cours");
 		return employeRepository.countemp();
 	}
 	
 	public List<String> getAllEmployeNamesJPQL() {
+		logger.debug("getAllEmployeNamesJPQL() est en cours");
 		return employeRepository.employeNames();
 
 	}
 	
 	public List<Employe> getAllEmployeByEntreprise(Entreprise entreprise) {
-		return employeRepository.getAllEmployeByEntreprisec(entreprise);
+		List<Employe> employes=null;
+		try {
+			logger.debug("getAllEmployeByEntreprise est en cours");
+		employes=employeRepository.getAllEmployeByEntreprisec(entreprise);
+		logger.info("liste des employes selon entreprise");
+		}catch (Exception e) {
+			logger.error("Erreur dans getAllEmployeByEntreprise(): "+ e);
+		}
+		return employes;
 	}
 
 	public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId) {
+		logger.debug("mettreAjourEmailByEmployeIdJPQL est en cours");
 		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
 
 	}
@@ -144,12 +176,17 @@ public class EmployeServiceImp implements IEmployeService {
 	
 	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
 			Date dateFin) {
-		return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+		List<Timesheet> timesheets=null;
+		try {
+			logger.debug("getTimesheetsByMissionAndDate est en cours");
+		 timesheets = timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+		 logger.info("affichage des listes des timesheet selon missions et date");
+		}catch(Exception e) {logger.error("Erreur dans getTimesheetsByMissionAndDate(): "+ e);}
+		return timesheets;
 	}
 
 	public List<Employe> getAllEmployes() {
+				logger.debug("affichage de la liste de tout les employes ");
 				return (List<Employe>) employeRepository.findAll();
 	}
-
-	
 }
