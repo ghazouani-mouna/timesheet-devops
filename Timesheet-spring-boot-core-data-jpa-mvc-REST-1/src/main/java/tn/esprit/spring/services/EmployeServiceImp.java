@@ -121,9 +121,9 @@ public class EmployeServiceImp implements IEmployeService {
 		//Desaffecter l'employe de tous les departements
 		//c'est le bout master qui permet de mettre a jour
 		//la table d'association
-		for(Departement dep : employe.getDepartements()){
-			dep.getEmployes().remove(employe);
-		}
+//		for(Departement dep : employe.getDepartements()){
+//			dep.getEmployes().remove(employe);
+//		}
 
 		employeRepository.delete(employe);
 	}

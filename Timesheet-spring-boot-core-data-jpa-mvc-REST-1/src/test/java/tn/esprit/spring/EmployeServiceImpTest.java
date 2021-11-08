@@ -17,12 +17,11 @@ import tn.esprit.spring.entities.Role;
 public class EmployeServiceImpTest {
 	@Autowired
     RestControlEmploye controllerEmploye;
-	Integer a,b;
 	
 	@Test
     public void testAjouterEmploye(){
 
-		 Employe employe= controllerEmploye.ajouterEmploye (new Employe("Yosra","Nasri","yosra.nasri@esprit.tn",true,Role.ADMINISTRATEUR ));
+		 Employe employe= controllerEmploye.ajouterEmploye (new Employe("Yosra1535kkk","Nasri125","yosra.nasri@esprit.tn",true,Role.ADMINISTRATEUR ));
 		 assertNotEquals(employe.getId(),0);
 		 controllerEmploye.deleteEmployeById(employe.getId());
     }
@@ -31,8 +30,7 @@ public class EmployeServiceImpTest {
 		Employe employe= controllerEmploye.ajouterEmploye (new Employe("Yossra","Nassri","yossra.nassri@esprit.tn",true,Role.ADMINISTRATEUR ));
 		assertEquals("Nassri",controllerEmploye.getEmployePrenomById(employe.getId()));
 		controllerEmploye.deleteEmployeById(employe.getId());
-	}
-	
+	}	
 	
 	@Test 
 	public void testGetNombreEmployeJPQL() {
@@ -48,7 +46,7 @@ public class EmployeServiceImpTest {
 	}
 	@Test
 	public void testDeleteEmployeById() {
-		Employe employe= controllerEmploye.ajouterEmploye (new Employe("yosra","yosra","yosra.yosra@esprit.tn",true,Role.ADMINISTRATEUR ));
+		Employe employe= controllerEmploye.ajouterEmploye (new Employe("yosra15","yosra","yosra.yosra@esprit.tn",true,Role.ADMINISTRATEUR ));
 		assertNotEquals(employe.getId(),0);
 		controllerEmploye.deleteEmployeById(employe.getId());
 		
