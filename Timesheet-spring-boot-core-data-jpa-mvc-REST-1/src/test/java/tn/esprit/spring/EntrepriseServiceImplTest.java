@@ -58,7 +58,7 @@ public void testGetEtrepriseById(){
 }
 
 
-@Test
+/*@Test
 public void testDeleteEntrepriseById(){
 	
 	if(idEntreprise!=null){
@@ -75,7 +75,7 @@ public void testDeleteEntrepriseById(){
 	
 	
 
-}
+}*/
 @Test
 public void testGetAllDepartementsNamesByEntreprise() {
 	
