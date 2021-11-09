@@ -53,6 +53,7 @@ public class Contrat implements Serializable {
 	public int getReference() {
 		return reference;
 	}
+	
 
 	public void setReference(int reference) {
 		this.reference = reference;
