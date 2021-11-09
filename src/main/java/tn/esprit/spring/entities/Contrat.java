@@ -50,7 +50,6 @@ public class Contrat implements Serializable {
 	public void setDateDebut(Date dateDebut) {
 		this.dateDebut = dateDebut;
 	}
-
 	public int getReference() {
 		return reference;
 	}
