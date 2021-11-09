@@ -51,9 +51,6 @@ public class Contrat implements Serializable {
 		this.dateDebut = dateDebut;
 	}
 
-	
-	
-	
 	public int getReference() {
 		return reference;
 	}
