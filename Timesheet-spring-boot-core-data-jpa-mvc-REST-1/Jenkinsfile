@@ -7,7 +7,7 @@ pipeline {
     stages {
     	stage('Cloning Project from Git') {
 			steps {
-				git clone 'https://github.com/ghazouani-mouna/timesheet-devops.git'
+				sh "git clone 'https://github.com/ghazouani-mouna/timesheet-devops.git'"
 				}
 			}
     
