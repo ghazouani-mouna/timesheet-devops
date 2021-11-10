@@ -9,6 +9,7 @@ pipeline {
     stages {
     	stage('Build Stage') { 
     		steps {
+    			bat "ls"
 	      		bat "mvn clean install"
 	    	}
 	 	}
