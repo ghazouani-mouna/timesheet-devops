@@ -9,7 +9,7 @@ pipeline {
     stages {
     	stage('Build Stage') { 
     		steps {
-    			bat "cd C:\Users\yosra\timesheet-devops\Timesheet-spring-boot-core-data-jpa-mvc-REST-1"
+    			bat "cd C:/Users/yosra/timesheet-devops/Timesheet-spring-boot-core-data-jpa-mvc-REST-1"
 	      		bat "mvn clean install"
 	    	}
 	 	}
