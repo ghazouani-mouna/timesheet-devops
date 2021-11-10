@@ -3,12 +3,20 @@
 pipeline {
 
     agent any
+    tools{
+    	maven 'Maven 3.3.9'
+    }
 
     stages {
+    	stage('Cloning Project from Git') {
+			steps {
+				git clone 'https://github.com/ghazouani-mouna/timesheet-devops.git'
+				}
+			}
     
     	stage('Build Stage') { 
     		steps {
-	      		echo "hello world"
+	      		sh 'mvn clean insatll'
 	    	}
 	 	}
 	 	
