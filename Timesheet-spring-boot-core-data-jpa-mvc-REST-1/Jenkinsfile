@@ -9,7 +9,7 @@ pipeline {
     stages {
     	stage('Build Stage') { 
     		steps {
-	      		sh "Timesheet-spring-boot-core-data-jpa-mvc-REST-1/mvn clean install"
+	      		bat "mvn clean install"
 	    	}
 	 	}
 	 	
