@@ -4,7 +4,7 @@ pipeline {
 
     agent any
     environment{
-    	def mvnHome=C:/Users/yosra/timesheet-devops/Timesheet-spring-boot-core-data-jpa-mvc-REST-1/bin
+    	def mvnHome = C:/Users/yosra/timesheet-devops/Timesheet-spring-boot-core-data-jpa-mvc-REST-1/bin
     }
     tools{
     	maven "M3"
