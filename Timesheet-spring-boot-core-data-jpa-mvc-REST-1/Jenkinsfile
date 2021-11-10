@@ -5,12 +5,6 @@ pipeline {
     agent any
 
     stages {
-    	stage('Cloning Project from Git') {
-			steps {
-				sh "git clone 'https://github.com/ghazouani-mouna/timesheet-devops.git'"
-				}
-			}
-    
     	stage('Build Stage') { 
     		steps {
 	      		sh 'mvn clean insatll'
