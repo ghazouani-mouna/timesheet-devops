@@ -13,6 +13,27 @@ pipeline {
 	      		{bat "mvn clean install"}
 	    	}
 	 	}
+	 	stage ('MVN TEST') {
+            steps {
+            	dir("C:/Users/yosra/timesheet-devops/Timesheet-spring-boot-core-data-jpa-mvc-REST-1")
+                {echo "Maven Test JUnit"; 
+                bat 'mvn test'; }
+            }
+        }      
+        stage("Static tests") {
+            steps {
+               dir("C:/Users/yosra/timesheet-devops/Timesheet-spring-boot-core-data-jpa-mvc-REST-1")
+               {bat "mvn sonar:sonar  "}
+            }
+            
+        }
+         stage("Cleaning and packaging") {
+            steps {
+               dir("C:/Users/yosra/timesheet-devops/Timesheet-spring-boot-core-data-jpa-mvc-REST-1")
+               {bat "mvn clean package "}
+            }
+            
+        }
 	 	
     }
 
