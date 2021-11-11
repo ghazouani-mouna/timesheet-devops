@@ -6,16 +6,12 @@ import org.springframework.stereotype.Controller;
 
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.services.IDepartementService;
-import tn.esprit.spring.services.IEntrepriseService;
 
 
 @Controller
 public class IControllerDepartementImpl {
 
-	@Autowired
-	IEntrepriseService iemployeservice;
-	@Autowired
-	IEntrepriseService ientrepriseservice;
+	
 	@Autowired
 	IDepartementService idepartementservice;
 

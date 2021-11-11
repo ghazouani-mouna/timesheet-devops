@@ -15,14 +15,12 @@ import tn.esprit.spring.entities.DepartementDto;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 import tn.esprit.spring.services.DepartementServiceImpl;
-import tn.esprit.spring.services.EntrepriseServiceImpl;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DepartementServiceImplTest {
 	
-	@Autowired EntrepriseServiceImpl entservice;
 	@Autowired DepartementServiceImpl depservice;
 	@Autowired EntrepriseRepository  entrepriserepository;
 	@Autowired DepartementRepository  departementrepository;

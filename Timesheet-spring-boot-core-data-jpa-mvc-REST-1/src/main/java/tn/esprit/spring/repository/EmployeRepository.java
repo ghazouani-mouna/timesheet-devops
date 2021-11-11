@@ -1,6 +1,5 @@
 package tn.esprit.spring.repository;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -53,12 +52,5 @@ public interface EmployeRepository extends CrudRepository<Employe, Integer>  {
 	
     		
    
-=======
-import org.springframework.data.repository.CrudRepository;
-
-import tn.esprit.spring.entities.Employe;
-
-public interface EmployeRepository extends CrudRepository<Employe,Integer> {
->>>>>>> 5aa82419b85ebec8e75412e75d993d51d8bfb500
 
 }

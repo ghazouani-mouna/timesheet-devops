@@ -15,7 +15,6 @@ import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.DepartementDto;
 import tn.esprit.spring.services.IDepartementService;
 import tn.esprit.spring.services.IEmployeService;
-import tn.esprit.spring.services.IEntrepriseService;
 
 @RestController
 public class RestControlDepartement {
@@ -25,8 +24,7 @@ public class RestControlDepartement {
 	IEmployeService iemployeservice;
 	@Autowired
 	IDepartementService idepartementservice;
-	@Autowired
-	IEntrepriseService ientrepriseservice;
+	
 	
 	 @Autowired
 	private ModelMapper modelMapper;
