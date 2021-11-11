@@ -2,6 +2,7 @@ package tn.esprit.spring.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,15 +80,17 @@ public void affecterContratAEmploye(int contratId, int employeId) {
 		}else {
 			
 			try {
-				                       
-		Contrat contratManagedEntity = contratRepository.findById(contratId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 		
-		logger.info("Affecting Contract ");
+		Optional<Contrat> contratManagedEntity = contratRepository.findById(contratId);
+		Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
 		
-
-		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepository.save(contratManagedEntity);
+		logger.info("Affecting Contract  " );
+		if(contratManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
+		Contrat contrat = contratManagedEntity.get();
+		Employe employe = employeManagedEntity.get();
+		contrat.setEmploye(employe);
+		contratRepository.save(contrat);
+		}
 		
 		logger.info("Contract Binded Succefully ! ");
 			}catch(Exception e) {
@@ -98,11 +101,14 @@ public void affecterContratAEmploye(int contratId, int employeId) {
 	}
 
 public void deleteContratById(int contratId) {
-	if (Integer.toString(contratId).equals("")) {
+	if (!(Integer.toString(contratId).equals(""))) {
 	logger.info("Deleting Contract");
 	try {
-	Contrat contratManagedEntity = contratRepository.findById(contratId).get();
-	contratRepository.delete(contratManagedEntity);
+	Optional<Contrat> contratManagedEntity = contratRepository.findById(contratId);
+	if(contratManagedEntity.isPresent()) {
+	Contrat contrat = contratManagedEntity.get();
+	contratRepository.delete(contrat);
+	}
 	logger.info("Contract Deleted Succefully ! ");
 	}catch(Exception e) {
 		logger.error(e.toString());
